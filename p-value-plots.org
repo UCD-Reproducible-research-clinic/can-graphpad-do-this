@@ -1,0 +1,201 @@
+#+TITLE: Welcome to Reproducible Research Network
+#+DATE: 2017-11-01
+#+OPTIONS: ^:{} num:nil toc:nil
+#+REVEAL_TRANS: none
+#+REVEAL_THEME: nick_white
+#+HTML: <link rel="stylesheet" href="reveal.js/css/reveal.css">
+#+HTML: <link rel="stylesheet" href="reveal.js/css/theme/nick_white.css" id="theme">
+#+HTML: <script src="reveal.js/lib/js/head.min.js"></script>
+#+HTML:<script src="reveal.js/js/reveal.js"></script>
+#+REVEAL_EXTRA_CSS: custom.css
+* 
+/A network of students and faculty encouraging reproducible research and data analysis practices/
+
+https://ucd-reproducible-research-clinic.github.io/
+
+https://nickgeorge.net
+
+* Can Graphpad do this?
+
+#+BEGIN_NOTES
+This is a quick presentation to show you how you can present your research in a better way using RR tools. 
+I called this quick demo Can GraphPad do this because I know that most people are resigned to doing things the GUI/graphpad way, but I want to show you there is another way! 
+#+END_NOTES
+* 
+Plots and code taken from:
+- https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/
+* GraphPad
+#+ATTR_REVEAL: :frag (appear)
+- easy(ish) to use
+- decent plots
+- walks you through basic stats
+- ???
+* plot
+
+- we have time series or dose-response data and we want to plot it
+
+#+ATTR_HTML: :width 50% :height 50%
+[[file:img/graph-pad-plot.png]]
+
+#+REVEAL_HTML: <small>https://www.youtube.com/watch?v=ZAEYgU_kp7I</small>
+#+BEGIN_NOTES
+GraphPad will get you a basic plot like this relatively easily (once your copy pasted from a few spreadsheets into excel that is...)
+You click through some tabs, set up stuff, save a bunch of who knows what...
+But, now suppose we want to know what matters?
+#+END_NOTES
+
+* statistics
+#+ATTR_REVEAL: :frag (appear)
+- which ones are significant?
+* 
+
+  #+ATTR_HTML: :width 50% :height 50%
+[[file:img/graphpad-wont.png]]
+
+/"Write the asterisks manually"/
+#+BEGIN_NOTES
+No help there...
+#+END_NOTES
+
+* problem
+
+
+[[file:img/graph-pad-stats.png]]
+
+#+REVEAL_HTML: <small>https://www.youtube.com/watch?v=ZAEYgU_kp7I</small>
+#+BEGIN_NOTES
+but no big deal.. 
+Well then we get to this screen... 
+We have all been here. 
+Flip back and forth between tabs, add your bars, make sure they are even... 
+Is there really that many ways to make significance bars??? How has noone solved this?
+#+END_NOTES
+** 
+
+#+ATTR_HTML: :width 50% :height 50%
+[[file:img/graph-pad-plot.png]]
+
+
+* 
+$150-300/year license to copy paste asterisks?
+#+ATTR_REVEAL: :frag (appear)
+*How is this not figured out by now?*
+
+* What about this?
+- What if you could generate a chart that looks like this with a few lines of code?
+#+BEGIN_SRC R :session rsesh :file img/example.png :results output graphics :exports none
+  library(ggplot2)
+  library(ggpubr)
+
+  data("ToothGrowth")
+
+  ggline(ToothGrowth, x = "dose", y = "len", add = "mean_se",
+            color = "supp")+
+    stat_compare_means(aes(group = supp), label = "p.signif", 
+                       label.y = c(16, 25, 29))
+#+END_SRC
+#+ATTR_REVEAL: :frag (appear)
+#+ATTR_HTML: :width 40% :height 40%
+[[file:img/example.png]]
+#+REVEAL_HTML: <small>https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/</small>
+#+REVEAL: split
+#+BEGIN_SRC R :session rsesh :file img/boxplot-example.png :results output graphics :exports none
+  my_comps <- list(c("0.5", "1"), c("1", "2"), c("0.5", "2"))
+
+  ggboxplot(ToothGrowth, x = "dose", y = "len",
+            color = "dose")+ 
+    stat_compare_means(comparisons = my_comps, label.y = c(29, 35, 40))+
+    stat_compare_means(label.y = 45)
+#+END_SRC
+
+
+#+ATTR_HTML: :width 50% :height 50%
+[[file:img/boxplot-example.png]]
+#+REVEAL_HTML: <small>https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/</small>
+
+* ggpubr
+
+- *R* programming language
+Add on libraries:
+#+ATTR_REVEAL: :frag (appear)
+- *ggplot2*
+- *ggpubr* 
+#+ATTR_REVEAL: :frag (appear)
+/Free as in beer, Free as in speech/ 
+#+BEGIN_NOTES
+This is done with FREE (as in beer and libre) and OPEN SOURCE software!
+#+END_NOTES
+
+* How?
+#+BEGIN_SRC R :session rsesh :results output :exports both
+  library(ggplot2)
+  library(ggpubr)
+   str(ToothGrowth)
+#+END_SRC
+#+ATTR_REVEAL: :frag (appear)
+#+RESULTS:
+: 'data.frame':	60 obs. of  3 variables:
+:  $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...
+:  $ supp: Factor w/ 2 levels "OJ","VC": 2 2 2 2 2 2 2 2 2 2 ...
+:  $ dose: num  0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 ...
+
+* 
+- This dataframe (spreadsheet) has two treatments (Orange Juice, Vitamin C)
+- contains a dose and measured length of teeth
+
+* Plot
+This is as easy as:
+
+#+BEGIN_SRC R :session rsesh :results silent :exports code :eval no
+  library(ggplot2)
+  library(ggpubr)
+
+  data("ToothGrowth")
+
+  ggline(ToothGrowth, x = "dose", y = "len", add = "mean_se",
+            color = "supp")+
+    stat_compare_means(aes(group = supp), label = "p.signif", 
+                       label.y = c(16, 25, 29))
+#+END_SRC
+** 
+
+ #+ATTR_HTML: :width 40% :height 40%
+ [[file:img/example.png]]
+* 
+For the multiple comparisons,
+#+BEGIN_SRC R :session rsesh :results silent :exports code :eval no
+  # specify comparisons
+   my_comps <- list(c("0.5", "1"), c("1", "2"), c("0.5", "2"))
+
+   ggboxplot(ToothGrowth, x = "dose", y = "len",
+             color = "dose")+ 
+     stat_compare_means(comparisons = my_comps,
+                        label.y = c(29, 35, 40))+
+     stat_compare_means(label.y = 45)
+#+END_SRC
+
+#+BEGIN_NOTES
+I hope you agree that this is not that difficult!
+#+END_NOTES
+** 
+
+#+ATTR_HTML: :width 50% :height 50%
+[[file:img/boxplot-example.png]]
+* How can I do this with my data?
+#+ATTR_REVEAL: :frag (appear)
+*come to RRN meetings!*
+* How is this reproducible?
+You go from your *RAW* data to this plot
+#+ATTR_REVEAL: :frag (appear)
+- all steps are recorded
+- all steps are automated
+- no copy paste mistakes!
+- prettier plots!
+
+* Links
+Plots and code taken from:
+- https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/
+Spread the word and let us help you!
+- https://ucd-reproducible-research-clinic.github.io/
+
+

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Welcome to Reproducible Research Network</title>
+<meta name="author" content="(Nick George)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///Users/Nick/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:///Users/Nick/reveal.js/css/theme/nick_white.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///Users/Nick/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Welcome to Reproducible Research Network</h1><h4>Nick George</h4><h4><a href="mailto:nicholas.m.george@ucdenver.edu">nicholas.m.george@ucdenver.edu</a></h4>
+</section>
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/nick_white.css" id="theme">
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<section>
+<section id="slide-org084370f">
+<h2 id="org084370f"></h2>
+<p>
+<i>A network of students and faculty encouraging reproducible research and data analysis practices</i>
+</p>
+
+<p>
+<a href="https://ucd-reproducible-research-clinic.github.io/">https://ucd-reproducible-research-clinic.github.io/</a>
+</p>
+
+<p>
+<a href="https://nickgeorge.net">https://nickgeorge.net</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org26c2f25">
+<h2 id="org26c2f25">Can Graphpad do this?</h2>
+<aside class="notes">
+<p>
+This is a quick presentation to show you how you can present your research in a better way using RR tools. 
+I called this quick demo Can GraphPad do this because I know that most people are resigned to doing things the GUI/graphpad way, but I want to show you there is another way! 
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org35209ca">
+<h2 id="org35209ca"></h2>
+<p>
+Plots and code taken from:
+</p>
+<ul>
+<li><a href="https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/">https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/</a></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org894e8c2">
+<h2 id="org894e8c2">GraphPad</h2>
+<ul>
+<li class="fragment appear">easy(ish) to use</li>
+<li class="fragment appear">decent plots</li>
+<li class="fragment appear">walks you through basic stats</li>
+<li class="fragment appear">???</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgb68029f">
+<h2 id="orgb68029f">plot</h2>
+<ul>
+<li>we have time series or dose-response data and we want to plot it</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="img/graph-pad-plot.png" alt="graph-pad-plot.png" width="50%" height="50%" />
+</p>
+</div>
+
+<small>https://www.youtube.com/watch?v=ZAEYgU_kp7I</small>
+<aside class="notes">
+<p>
+GraphPad will get you a basic plot like this relatively easily (once your copy pasted from a few spreadsheets into excel that is&#x2026;)
+You click through some tabs, set up stuff, save a bunch of who knows what&#x2026;
+But, now suppose we want to know what matters?
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org831e2d5">
+<h2 id="org831e2d5">statistics</h2>
+<ul>
+<li class="fragment appear">which ones are significant?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orga8f515b">
+<h2 id="orga8f515b"></h2>
+
+<div class="figure">
+<p><img src="img/graphpad-wont.png" alt="graphpad-wont.png" width="50%" height="50%" />
+</p>
+</div>
+
+<p>
+<i>"Write the asterisks manually"</i>
+</p>
+<aside class="notes">
+<p>
+No help there&#x2026;
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org0834913">
+<h2 id="org0834913">problem</h2>
+
+<div class="figure">
+<p><img src="img/graph-pad-stats.png" alt="graph-pad-stats.png" />
+</p>
+</div>
+
+<small>https://www.youtube.com/watch?v=ZAEYgU_kp7I</small>
+<aside class="notes">
+<p>
+but no big deal.. 
+Well then we get to this screen&#x2026; 
+We have all been here. 
+Flip back and forth between tabs, add your bars, make sure they are even&#x2026; 
+Is there really that many ways to make significance bars??? How has noone solved this?
+</p>
+
+</aside>
+</section>
+<section id="slide-orga57ebae">
+<h3 id="orga57ebae"></h3>
+
+<div class="figure">
+<p><img src="img/graph-pad-plot.png" alt="graph-pad-plot.png" width="50%" height="50%" />
+</p>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org9298020">
+<h2 id="org9298020"></h2>
+<p>
+$150-300/year license to copy paste asterisks?
+</p>
+<p class="fragment (appear)">
+<b>How is this not figured out by now?</b>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb24a38c">
+<h2 id="orgb24a38c">What about this?</h2>
+<ul>
+<li>What if you could generate a chart that looks like this with a few lines of code?</li>
+
+</ul>
+
+<div class="figure">
+<p><img src="img/example.png" alt="example.png" class="fragment (appear)" width="40%" height="40%" />
+</p>
+</div>
+<small>https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/</small>
+</section>
+<section >
+
+<div class="figure">
+<p><img src="img/boxplot-example.png" alt="boxplot-example.png" width="50%" height="50%" />
+</p>
+</div>
+<small>https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/</small>
+
+</section>
+</section>
+<section>
+<section id="slide-org618cb9d">
+<h2 id="org618cb9d">ggpubr</h2>
+<ul>
+<li><b>R</b> programming language</li>
+
+</ul>
+<p>
+Add on libraries:
+</p>
+<ul>
+<li class="fragment appear"><b>ggplot2</b></li>
+<li class="fragment appear"><b>ggpubr</b></li>
+
+</ul>
+<p class="fragment (appear)">
+<i>Free as in beer, Free as in speech</i> 
+</p>
+<aside class="notes">
+<p>
+This is done with FREE (as in beer and libre) and OPEN SOURCE software!
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf620fb1">
+<h2 id="orgf620fb1">How?</h2>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #D0372D;">library</span>(ggplot2)
+<span style="color: #D0372D;">library</span>(ggpubr)
+ str(ToothGrowth)
+</pre>
+</div>
+<pre class="example">
+'data.frame':	60 obs. of  3 variables:
+ $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...
+ $ supp: Factor w/ 2 levels "OJ","VC": 2 2 2 2 2 2 2 2 2 2 ...
+ $ dose: num  0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 ...
+
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-org2a92b58">
+<h2 id="org2a92b58"></h2>
+<ul>
+<li>This dataframe (spreadsheet) has two treatments (Orange Juice, Vitamin C)</li>
+<li>contains a dose and measured length of teeth</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgbd6638e">
+<h2 id="orgbd6638e">Plot</h2>
+<p>
+This is as easy as:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #D0372D;">library</span>(ggplot2)
+<span style="color: #D0372D;">library</span>(ggpubr)
+
+data(<span style="color: #008000;">"ToothGrowth"</span>)
+
+ggline(ToothGrowth, x = <span style="color: #008000;">"dose"</span>, y = <span style="color: #008000;">"len"</span>, add = <span style="color: #008000;">"mean_se"</span>,
+          color = <span style="color: #008000;">"supp"</span>)+
+  stat_compare_means(aes(group = supp), label = <span style="color: #008000;">"p.signif"</span>, 
+                     label.y = c(16, 25, 29))
+</pre>
+</div>
+</section>
+<section id="slide-org280b67e">
+<h3 id="org280b67e"></h3>
+
+<div class="figure">
+<p><img src="img/example.png" alt="example.png" width="40%" height="40%" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org32fca4d">
+<h2 id="org32fca4d"></h2>
+<p>
+For the multiple comparisons,
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">specify comparisons</span>
+ my_comps <span style="color: #D0372D;">&lt;-</span> list(c(<span style="color: #008000;">"0.5"</span>, <span style="color: #008000;">"1"</span>), c(<span style="color: #008000;">"1"</span>, <span style="color: #008000;">"2"</span>), c(<span style="color: #008000;">"0.5"</span>, <span style="color: #008000;">"2"</span>))
+
+ ggboxplot(ToothGrowth, x = <span style="color: #008000;">"dose"</span>, y = <span style="color: #008000;">"len"</span>,
+           color = <span style="color: #008000;">"dose"</span>)+ 
+   stat_compare_means(comparisons = my_comps,
+                      label.y = c(29, 35, 40))+
+   stat_compare_means(label.y = 45)
+</pre>
+</div>
+
+<aside class="notes">
+<p>
+I hope you agree that this is not that difficult!
+</p>
+
+</aside>
+</section>
+<section id="slide-org71ef9de">
+<h3 id="org71ef9de"></h3>
+
+<div class="figure">
+<p><img src="img/boxplot-example.png" alt="boxplot-example.png" width="50%" height="50%" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgdbd1df5">
+<h2 id="orgdbd1df5">How can I do this with my data?</h2>
+<p class="fragment (appear)">
+<b>come to RRN meetings!</b>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org25db4b6">
+<h2 id="org25db4b6">How is this reproducible?</h2>
+<p>
+You go from your <b>RAW</b> data to this plot
+</p>
+<ul>
+<li class="fragment appear">all steps are recorded</li>
+<li class="fragment appear">all steps are automated</li>
+<li class="fragment appear">no copy paste mistakes!</li>
+<li class="fragment appear">prettier plots!</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb0b35ce">
+<h2 id="orgb0b35ce">Links</h2>
+<p>
+Plots and code taken from:
+</p>
+<ul>
+<li><a href="https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/">https://www.r-bloggers.com/add-p-values-and-significance-levels-to-ggplots/</a></li>
+
+</ul>
+<p>
+Spread the word and let us help you!
+</p>
+<ul>
+<li><a href="https://ucd-reproducible-research-clinic.github.io/">https://ucd-reproducible-research-clinic.github.io/</a></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///Users/Nick/reveal.js/lib/js/head.min.js"></script>
+<script src="file:///Users/Nick/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:///Users/Nick/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'file:///Users/Nick/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///Users/Nick/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///Users/Nick/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file:///Users/Nick/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
