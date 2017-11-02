@@ -34,8 +34,8 @@
 <script src="reveal.js/lib/js/head.min.js"></script>
 <script src="reveal.js/js/reveal.js"></script>
 <section>
-<section id="slide-org084370f">
-<h2 id="org084370f"></h2>
+<section id="slide-org71d755c">
+<h2 id="org71d755c"></h2>
 <p>
 <i>A network of students and faculty encouraging reproducible research and data analysis practices</i>
 </p>
@@ -46,13 +46,17 @@
 
 <p>
 <a href="https://nickgeorge.net">https://nickgeorge.net</a>
+<b>Presentation</b>
 </p>
 
+<p>
+<a href="https://ucd-reproducible-research-clinic.github.io/can-graphpad-do-this/p-value-plots.html">https://ucd-reproducible-research-clinic.github.io/can-graphpad-do-this/p-value-plots.html</a>
+</p>
 </section>
 </section>
 <section>
-<section id="slide-org26c2f25">
-<h2 id="org26c2f25">Can Graphpad do this?</h2>
+<section id="slide-org63212d3">
+<h2 id="org63212d3">Can Graphpad do this?</h2>
 <aside class="notes">
 <p>
 This is a quick presentation to show you how you can present your research in a better way using RR tools. 
@@ -63,8 +67,8 @@ I called this quick demo Can GraphPad do this because I know that most people ar
 </section>
 </section>
 <section>
-<section id="slide-org35209ca">
-<h2 id="org35209ca"></h2>
+<section id="slide-orgd7a0423">
+<h2 id="orgd7a0423"></h2>
 <p>
 Plots and code taken from:
 </p>
@@ -75,8 +79,8 @@ Plots and code taken from:
 </section>
 </section>
 <section>
-<section id="slide-org894e8c2">
-<h2 id="org894e8c2">GraphPad</h2>
+<section id="slide-orgadf4834">
+<h2 id="orgadf4834">GraphPad</h2>
 <ul>
 <li class="fragment appear">easy(ish) to use</li>
 <li class="fragment appear">decent plots</li>
@@ -87,8 +91,8 @@ Plots and code taken from:
 </section>
 </section>
 <section>
-<section id="slide-orgb68029f">
-<h2 id="orgb68029f">plot</h2>
+<section id="slide-org9f4c6f1">
+<h2 id="org9f4c6f1">plot</h2>
 <ul>
 <li>we have time series or dose-response data and we want to plot it</li>
 
@@ -113,8 +117,8 @@ But, now suppose we want to know what matters?
 </section>
 </section>
 <section>
-<section id="slide-org831e2d5">
-<h2 id="org831e2d5">statistics</h2>
+<section id="slide-orgc8f3b8b">
+<h2 id="orgc8f3b8b">statistics</h2>
 <ul>
 <li class="fragment appear">which ones are significant?</li>
 
@@ -122,8 +126,8 @@ But, now suppose we want to know what matters?
 </section>
 </section>
 <section>
-<section id="slide-orga8f515b">
-<h2 id="orga8f515b"></h2>
+<section id="slide-org9a5abc8">
+<h2 id="org9a5abc8"></h2>
 
 <div class="figure">
 <p><img src="img/graphpad-wont.png" alt="graphpad-wont.png" width="50%" height="50%" />
@@ -143,8 +147,8 @@ No help there&#x2026;
 </section>
 </section>
 <section>
-<section id="slide-org0834913">
-<h2 id="org0834913">problem</h2>
+<section id="slide-org71129b3">
+<h2 id="org71129b3">problem</h2>
 
 <div class="figure">
 <p><img src="img/graph-pad-stats.png" alt="graph-pad-stats.png" />
@@ -163,8 +167,8 @@ Is there really that many ways to make significance bars??? How has noone solved
 
 </aside>
 </section>
-<section id="slide-orga57ebae">
-<h3 id="orga57ebae"></h3>
+<section id="slide-org78d2c21">
+<h3 id="org78d2c21"></h3>
 
 <div class="figure">
 <p><img src="img/graph-pad-plot.png" alt="graph-pad-plot.png" width="50%" height="50%" />
@@ -175,8 +179,8 @@ Is there really that many ways to make significance bars??? How has noone solved
 </section>
 </section>
 <section>
-<section id="slide-org9298020">
-<h2 id="org9298020"></h2>
+<section id="slide-orgecb69bd">
+<h2 id="orgecb69bd"></h2>
 <p>
 $150-300/year license to copy paste asterisks?
 </p>
@@ -187,8 +191,8 @@ $150-300/year license to copy paste asterisks?
 </section>
 </section>
 <section>
-<section id="slide-orgb24a38c">
-<h2 id="orgb24a38c">What about this?</h2>
+<section id="slide-org73c5b22">
+<h2 id="org73c5b22">What about this?</h2>
 <ul>
 <li>What if you could generate a chart that looks like this with a few lines of code?</li>
 
@@ -211,8 +215,8 @@ $150-300/year license to copy paste asterisks?
 </section>
 </section>
 <section>
-<section id="slide-org618cb9d">
-<h2 id="org618cb9d">ggpubr</h2>
+<section id="slide-orgf010b3b">
+<h2 id="orgf010b3b">ggpubr</h2>
 <ul>
 <li><b>R</b> programming language</li>
 
@@ -238,8 +242,8 @@ This is done with FREE (as in beer and libre) and OPEN SOURCE software!
 </section>
 </section>
 <section>
-<section id="slide-orgf620fb1">
-<h2 id="orgf620fb1">How?</h2>
+<section id="slide-orgb39cf9f">
+<h2 id="orgb39cf9f">How?</h2>
 <div class="org-src-container">
 
 <pre  class="src src-R"><span style="color: #D0372D;">library</span>(ggplot2)
@@ -258,8 +262,8 @@ This is done with FREE (as in beer and libre) and OPEN SOURCE software!
 </section>
 </section>
 <section>
-<section id="slide-org2a92b58">
-<h2 id="org2a92b58"></h2>
+<section id="slide-org1b51e1c">
+<h2 id="org1b51e1c"></h2>
 <ul>
 <li>This dataframe (spreadsheet) has two treatments (Orange Juice, Vitamin C)</li>
 <li>contains a dose and measured length of teeth</li>
@@ -269,8 +273,8 @@ This is done with FREE (as in beer and libre) and OPEN SOURCE software!
 </section>
 </section>
 <section>
-<section id="slide-orgbd6638e">
-<h2 id="orgbd6638e">Plot</h2>
+<section id="slide-orge7d9e40">
+<h2 id="orge7d9e40">Plot</h2>
 <p>
 This is as easy as:
 </p>
@@ -289,8 +293,8 @@ ggline(ToothGrowth, x = <span style="color: #008000;">"dose"</span>, y = <span s
 </pre>
 </div>
 </section>
-<section id="slide-org280b67e">
-<h3 id="org280b67e"></h3>
+<section id="slide-org8d42a26">
+<h3 id="org8d42a26"></h3>
 
 <div class="figure">
 <p><img src="img/example.png" alt="example.png" width="40%" height="40%" />
@@ -299,8 +303,8 @@ ggline(ToothGrowth, x = <span style="color: #008000;">"dose"</span>, y = <span s
 </section>
 </section>
 <section>
-<section id="slide-org32fca4d">
-<h2 id="org32fca4d"></h2>
+<section id="slide-orgb1f7878">
+<h2 id="orgb1f7878"></h2>
 <p>
 For the multiple comparisons,
 </p>
@@ -324,8 +328,8 @@ I hope you agree that this is not that difficult!
 
 </aside>
 </section>
-<section id="slide-org71ef9de">
-<h3 id="org71ef9de"></h3>
+<section id="slide-org2ce5f09">
+<h3 id="org2ce5f09"></h3>
 
 <div class="figure">
 <p><img src="img/boxplot-example.png" alt="boxplot-example.png" width="50%" height="50%" />
@@ -334,16 +338,16 @@ I hope you agree that this is not that difficult!
 </section>
 </section>
 <section>
-<section id="slide-orgdbd1df5">
-<h2 id="orgdbd1df5">How can I do this with my data?</h2>
+<section id="slide-org69e02ce">
+<h2 id="org69e02ce">How can I do this with my data?</h2>
 <p class="fragment (appear)">
 <b>come to RRN meetings!</b>
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org25db4b6">
-<h2 id="org25db4b6">How is this reproducible?</h2>
+<section id="slide-org887a2f7">
+<h2 id="org887a2f7">How is this reproducible?</h2>
 <p>
 You go from your <b>RAW</b> data to this plot
 </p>
@@ -358,8 +362,8 @@ You go from your <b>RAW</b> data to this plot
 </section>
 </section>
 <section>
-<section id="slide-orgb0b35ce">
-<h2 id="orgb0b35ce">Links</h2>
+<section id="slide-org7fc2a79">
+<h2 id="org7fc2a79">Links</h2>
 <p>
 Plots and code taken from:
 </p>

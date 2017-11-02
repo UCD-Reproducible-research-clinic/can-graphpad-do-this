@@ -14,7 +14,9 @@
 https://ucd-reproducible-research-clinic.github.io/
 
 https://nickgeorge.net
+*Presentation*
 
+https://ucd-reproducible-research-clinic.github.io/can-graphpad-do-this/p-value-plots.html
 * Can Graphpad do this?
 
 #+BEGIN_NOTES
